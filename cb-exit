@@ -35,7 +35,13 @@ class cb_exit:
 		self.disable_buttons()
 		self.status.set_label("Suspending, please standby...")
 		#os.system("xscreensaver-command -lock")
-		os.system("gksudo pm-suspend")
+		os.system("gksudo pm-suspend") #http://ubuntu-tutorials.com/2007/03/01/allowing-limited-sudo-access-with-visudo/ 
+		# to get pm-suspend working 
+		# append line to file
+		# run: sudo visudo
+		# Append
+		#  	joe ALL=NOPASSWD: /usr/sbin/shutdown, /usr/sbin/pm-suspend
+
 		
 
 	def reboot_action(self,btn):
