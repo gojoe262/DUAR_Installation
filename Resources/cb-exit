@@ -1,11 +1,20 @@
 #!/usr/bin/env python
 
-#http://ubuntu-tutorials.com/2007/03/01/allowing-limited-sudo-access-with-visudo/ 
-		# to get pm-suspend and shutdown working 
-		# append line to file
-		# run: sudo visudo
-		# Append
-		#  	joe ALL=NOPASSWD: /sbin/shutdown, /usr/sbin/pm-suspend	
+######################################################
+# Runs a dialog which allows the user to 
+# Poweroff, Reboot, Log out, Suspend, or Lock.
+# 
+# This program is based of "cb-exit". The source for
+# "cb-exit" can be found here:
+#	https://github.com/super-nathan/cb-exit
+######################################################
+
+# To get "pm-suspend/poweroff/reboot" working, run "visudo"
+# and add the following
+# lines to "visudo"
+# 		ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend
+#		ALL  ALL=NOPASSWD:/sbin/reboot
+#		ALL  ALL=NOPASSWD:/sbin/poweroff
 
 import pygtk
 pygtk.require('2.0')
@@ -34,26 +43,32 @@ class cb_exit:
 	def lock_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Locking the screen, please standby...")
-		os.system("xscreensaver-command -lock")
+		os.system("i3lock --image=/usr/share/slim/themes/slim-hud/background.jpg")
 		gtk.main_quit()
 
 	def suspend_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Suspending, please standby...")
-		os.system("xscreensaver-command -lock")
-		os.system("sleep 2.5")
+		os.system("i3lock --image=/usr/share/slim/themes/slim-hud/background.jpg")
+		os.system("sleep 1.5")
 		os.system("sudo pm-suspend")
-		gtk.main_quit()
+		gtk.main_quit()				# Requires user to add 
+									#   "ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend" 
+									#	to visudo
 		
 	def reboot_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Rebooting, please standby...")
-		os.system("sudo 'shutdown -r now'")
+		os.system("sudo reboot") 	# Requires user to add 
+									#   "ALL  ALL=NOPASSWD:/sbin/reboot" 
+									#	to visudo
 
 	def shutdown_action(self,btn):
 		self.disable_buttons()
 		self.status.set_label("Shutting down, please standby...")
-		os.system("sudo 'shutdown -h now'")
+		os.system("sudo poweroff") 	# Requires user to add 
+									#   "ALL  ALL=NOPASSWD:/sbin/poweroff" 
+									#	to visudo
 
 	def create_window(self):
 		self.window = gtk.Window()

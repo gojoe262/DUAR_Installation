@@ -180,11 +180,11 @@
     <!-- Aero Snap for Openbox Begin Code-->
     <keybind key="W-Left">               # HalfLeftScreen 
       <action name="UnmaximizeFull"/> 
-      <action name="MoveResizeTo"><x>0</x><y>0</y><height>97%</height><width>50%</width></action> 
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>100%</height><width>50%</width></action> 
     </keybind>
     <keybind key="W-Right">              # HalfRightScreen 
       <action name="UnmaximizeFull"/> 
-      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>97%</height><width>50%</width></action> 
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>100%</height><width>50%</width></action> 
     </keybind>
     <keybind key="W-Up">         # HalfUpperScreen (if maximize is desired, replace UnmaximizeFull” with  “MaximizeFull” and delete the other action)
      <action name="MaximizeFull"/>    
@@ -215,11 +215,6 @@
         <command>pavucontrol</command>
       </action>
     </keybind>
-    <keybind key="W-x">
-      <action name="Execute">
-        <command>gksudo 'shutdown -h now'</command>
-      </action>
-    </keybind>
     <keybind key="C-A-Delete">
       <action name="Execute">
         <command>lxtask</command>
@@ -230,14 +225,39 @@
         <command>lxtask</command>
       </action>
     </keybind>
+    <keybind key="W-x">
+      <action name="Execute">
+        <command>cb-exit</command>
+      </action>
+    </keybind>
+    <keybind key="W-r">
+      <action name="Execute">
+        <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="A-F2">
+      <action name="Execute">
+        <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>i3lock --image=/usr/share/slim/themes/slim-hud/background.jpg</command>
+      </action>
+    </keybind>
+	<keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>amixer -D pulse set Master 3%+ unmute</command>
+        <command>amixer -D pulse set Master 1%+ unmute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>amixer -D pulse set Master 3%- unmute</command>
+        <command>amixer -D pulse set Master 1%- unmute</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
@@ -399,9 +419,9 @@
       </action>
     </keybind>
     <!-- Launch scrot when Print is pressed -->
-    <keybind key="Print">
+	<keybind key="Print">
       <action name="Execute">
-        <command>scrot</command>
+        <command>xfce4-screenshooter</command>
       </action>
     </keybind>
   </keyboard>

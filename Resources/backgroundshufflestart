@@ -1,0 +1,6 @@
+#!/bin/bash
+while :
+	do
+    backgroundshufflenext
+    sleep 10m
+done
