@@ -1,6 +1,18 @@
 #!/bin/bash
 
 ########################################################################
+# WELCOME TO DUAR (Desktop Up And Running).
+#
+# This script will attempt to install a customized Openbox
+# desktop. It is loosely based off #! (Crunchbang).
+#
+# We assume that you installed Ubuntu Mini and are now running this
+# script to get a simple desktop up and running.
+########################################################################
+
+
+
+########################################################################
 # Exits this script
 ########################################################################
 function ExitDuar {
