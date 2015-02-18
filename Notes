@@ -13,6 +13,7 @@ Change Slim Theme
 		ALL  ALL=NOPASSWD:/sbin/poweroff
 		ALL  ALL=NOPASSWD:/sbin/reboot
 		ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend
+		ALL  ALL=NOPASSWD:/usr/local/bin/mountPartitions.sh
 		
 		
 =====COPY COMMAND=====
@@ -43,3 +44,21 @@ Change Slim Theme
 	After editing the file, you need to run update-grub.
 		sudo update-grub
 
+
+=====PLYMOUTH-UPSTART-BRIDGE=====
+	In Ubuntu 14.04 and Ubuntu 14.10, there seems to be a problem loading 
+	plymouth-upstart-bridge. This can be seen during the boot process (if 
+	boot messages are enable).
+		plymouth-upstart-bridge main process (387) terminated with status 1	
+	
+	To fix this issue add 'sleep 2' to the end of 
+	/etc/init/plymouth-upstart-bridge.conf. This will hopefully resolve the issue.		
+		sudo nano /etc/init/plymouth-upstart-bridge.conf
+		-Then add 
+			sleep 2
+		to the end of the file.
+		
+	
+	
+	
+	

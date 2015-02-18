@@ -1,0 +1,2 @@
+#!/bin/bash
+nitrogen --set-zoom "$(find /usr/share/backgrounds -type f | shuf -n1)"
