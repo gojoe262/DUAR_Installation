@@ -185,11 +185,15 @@ function ConfigureDesktop {
 	cp $resources/terminator/* $userSettings/terminator/ --backup --suffix=~ --recursive
 	
 	#Copy backgroundshuffle-start/next to /usr/local/bin/
-	cp $resources/backgroundshuffle* /usr/local/bin/ --backup --suffix=~ --recursive
+	cp $resources/backgroundshufflestart /usr/local/bin/ --backup --suffix=~ --recursive
+	cp $resources/backgroundshufflenext /usr/local/bin/ --backup --suffix=~ --recursive
 	
 	#Copy cb-exit to /usr/local/bin/
 	cp $resources/cb-exit /usr/local/bin/ --backup --suffix=~ --recursive
 	
+	#Copy background.jpg to /usr/share/backgrounds
+	mkdir /usr/share/backgrounds
+	cp $resources/background.jpg /usr/share/backgrounds/ --backup --suffix=~ --recursive
 	
 	echo ""
 }

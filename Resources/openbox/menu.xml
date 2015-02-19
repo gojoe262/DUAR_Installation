@@ -51,18 +51,6 @@
 				</action>
 			</item>
 		</menu>
-		<menu id="root-menu-381051" label="Office">
-			<item label="Evince PDF">
-				<action name="Execute">
-					<execute>evince</execute>
-				</action>
-			</item>
-			<item label="Geany">
-				<action name="Execute">
-					<execute>geany</execute>
-				</action>
-			</item>
-		</menu>
 		<menu id="root-menu-735254" label="Media">
 			<item label="Pavucontrol">
 				<action name="Execute">
@@ -72,6 +60,18 @@
 			<item label="Viewnior Pic Viewer">
 				<action name="Execute">
 					<execute>viewnior</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-381051" label="Office">
+			<item label="Evince PDF">
+				<action name="Execute">
+					<execute>evince</execute>
+				</action>
+			</item>
+			<item label="Geany">
+				<action name="Execute">
+					<execute>geany</execute>
 				</action>
 			</item>
 		</menu>
