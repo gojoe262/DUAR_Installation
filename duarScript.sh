@@ -162,6 +162,10 @@ function InstallOtherApps {
 	
 	echo "----------\n--Installing p7zip-full\n----------"
 	apt-get install p7zip-full					#Allows for password protected .7z files
+	
+	echo "----------\n--Installing Cheese (Webcam Software)\n----------"
+	apt-get install cheese						#Take video and picture from the webcam
+	
 
 }
 
