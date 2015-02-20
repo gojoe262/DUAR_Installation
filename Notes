@@ -58,6 +58,14 @@ Change Slim Theme
 			sleep 2
 		to the end of the file.
 		
+=====TINT WIZARD====
+	GUI Editor for tint2
+	https://code.google.com/p/tintwizard/
+	
+	Place the tintwizard.py in /usr/local/bin
+	Add openbox menu entry 
+		Name: Tint Wizard
+		Exec: tintwizard.py ~/.config/tint2/tint2rc
 	
 	
 	
