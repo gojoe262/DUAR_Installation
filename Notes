@@ -69,4 +69,16 @@ Change Slim Theme
 	
 	
 	
+=====INSTALLING APPS=====
+	1. 	When installing apps (such as Qt Creator) put this in the /opt directory.
 	
+	2. 	Either add the application's bin directory to path.
+			This is done by editing the '/etc/profile' file. 
+			Add these lines to the end of '/etc/profile':
+				PATH=$PATH:/opt/Qt/Tools/QtCreator/bin
+				export PATH
+
+		OR create a symlink in '/usr/local/bin' to the application's executable file:
+			ln -s /opt/Qt/Tools/QtCreator/bin/qtcreator.sh /usr/local/bin/qtcreator
+	
+	3. Now the application can be opened with a simple command

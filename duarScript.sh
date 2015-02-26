@@ -123,6 +123,9 @@ function InstallBasicDestopApps {
 
 	echo "----------\n--Installing LxTask\n----------"
 	apt-get install lxtask        				#Task manager
+	
+	sudo apt-get install gtk-theme-switch gtk2-engines
+	#TO RUN THE SWITCHER: gtk-theme-switch2
 }
 
 function InstallOtherApps {
