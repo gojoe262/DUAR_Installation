@@ -58,6 +58,24 @@ Change Slim Theme
 			sleep 2
 		to the end of the file.
 		
+		
+=====SPEED UP START TIME WITH GRUB PROFILING=====
+open your grub configuration file (/etc/default/grub) and find this line GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash”, do as follows :
+    sudo gedit /etc/default/grub
+    replace GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash” with GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash profile”.
+    save and exit
+    sudo update-grub2
+    sudo reboot
+
+Grub does a search for all the necessary drivers to load, Instead of making Grub search for required drivers, the profiling actually makes Grub remember every necessary driver to work, This action will cutting down all of the driver load times. 
+
+after your system up, edit /etc/default/grub and remove some option which we have added before.
+    sudo gedit /etc/default/grub
+    replace GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash profile” with GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash”.
+    save and exit
+    sudo update-grub2
+		
+		
 =====TINT WIZARD====
 	GUI Editor for tint2
 	https://code.google.com/p/tintwizard/
@@ -66,7 +84,6 @@ Change Slim Theme
 	Add openbox menu entry 
 		Name: Tint Wizard
 		Exec: tintwizard.py ~/.config/tint2/tint2rc
-	
 	
 	
 =====INSTALLING APPS=====
