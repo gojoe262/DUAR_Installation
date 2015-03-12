@@ -73,6 +73,8 @@ function InstallDesktop {
 	
 	echo "----------\n--Installing Tint2\n----------"
 	apt-get install tint2					#Taskbar
+	tar -xzvf ./Resources/tint2/tintwizard-0.3.4.tar.gz /usr/local/bin/tintwizard.py #Tint wizard editor
+	chmod +x /usr/local/bin/tintwizard.py	
 	
 	echo "----------\n--Installing Simplecal\n----------"
 	apt-get install simplecal    				#Little calendar for tint2

@@ -245,7 +245,12 @@
         <command>i3lock --image=/usr/share/slim/themes/slim-hud/background.jpg</command>
       </action>
     </keybind>
-	<keybind key="W-space">
+    <keybind key="W-space">
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+      </action>
+    </keybind>
+    <keybind key="C-Escape">
       <action name="ShowMenu">
         <menu>root-menu</menu>
       </action>
@@ -419,7 +424,7 @@
       </action>
     </keybind>
     <!-- Launch scrot when Print is pressed -->
-	<keybind key="Print">
+    <keybind key="Print">
       <action name="Execute">
         <command>xfce4-screenshooter</command>
       </action>

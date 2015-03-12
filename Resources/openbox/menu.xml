@@ -52,7 +52,17 @@
 			</item>
 		</menu>
 		<menu id="root-menu-735254" label="Media">
-			<item label="Pavucontrol">
+			<item label="Audacious Music Player">
+				<action name="Execute">
+					<execute>audacious</execute>
+				</action>
+			</item>
+			<item label="Cheese Webcam">
+				<action name="Execute">
+					<execute>cheese</execute>
+				</action>
+			</item>
+			<item label="Pavucontrol Volume Control">
 				<action name="Execute">
 					<execute>pavucontrol</execute>
 				</action>
@@ -60,6 +70,28 @@
 			<item label="Viewnior Pic Viewer">
 				<action name="Execute">
 					<execute>viewnior</execute>
+				</action>
+			</item>
+			<item label="VLC">
+				<action name="Execute">
+					<execute>vlc</execute>
+				</action>
+			</item>
+		</menu>
+		<menu id="root-menu-224620" label="Networking">
+			<item label="Firefox">
+				<action name="Execute">
+					<execute>firefox</execute>
+				</action>
+			</item>
+			<item label="FxTrade Oanda">
+				<action name="Execute">
+					<execute>java -jar -Xmx512m -Dsun.java2d.d3d=false /home/joe/.oanda/jar/fxTrade/fxTrade</execute>
+				</action>
+			</item>
+			<item label="Skype">
+				<action name="Execute">
+					<execute>skype</execute>
 				</action>
 			</item>
 		</menu>
@@ -74,9 +106,69 @@
 					<execute>geany</execute>
 				</action>
 			</item>
+			<menu id="root-menu-735254-2545" label="LibreOffice">
+				<item label="LibreOffice">
+					<action name="Execute">
+						<execute>libreoffice4.3</execute>
+					</action>
+				</item>
+				<separator/>
+				<item label="LibreOffice Writer">
+					<action name="Execute">
+						<execute>libreoffice4.3 --writer</execute>
+					</action>
+				</item>
+				<item label="LibreOffice Calc">
+					<action name="Execute">
+						<execute>libreoffice4.3 --calc</execute>
+					</action>
+				</item>
+				<item label="LibreOffice Draw">
+					<action name="Execute">
+						<execute>libreoffice4.3 --draw</execute>
+					</action>
+				</item>
+				<item label="LibreOffice Impress">
+					<action name="Execute">
+						<execute>libreoffice4.3 --impress</execute>
+					</action>
+				</item>
+				<item label="LibreOffice Base">
+					<action name="Execute">
+						<execute>libreoffice4.3 --base</execute>
+					</action>
+				</item>
+				<item label="LibreOffice Math">
+					<action name="Execute">
+						<execute>libreoffice4.3 --math</execute>
+					</action>
+				</item>
+			</menu>
+		</menu>
+		<menu id="root-menu-1429" label="Programming">
+			<item label="Android Studio">
+				<action name="Execute">
+					<execute>android-studio</execute>
+				</action>
+			</item>
+			<item label="Dr. Racket">
+				<action name="Execute">
+					<execute>drracket</execute>
+				</action>
+			</item>
+			<item label="QtCreator">
+				<action name="Execute">
+					<execute>qtcreator</execute>
+				</action>
+			</item>
 		</menu>
 		<separator/>
 		<menu id="root-menu-464924" label="Desktop Settings">
+			<item label="GTK Theme Switcher">
+				<action name="Execute">
+					<execute>gtk-theme-switch2</execute>
+				</action>
+			</item>
 			<menu id="root-menu-464924-32461" label="Openbox">
 				<item label="Ob Autostart (root)">
 					<action name="Execute">
@@ -107,9 +199,9 @@
 			</menu>
 			<menu id="client-list-menu"/>
 			<menu id="root-menu-464924-284925" label="Tint2">
-				<item label="Tint2 Settings">
+				<item label="Tint Wizard">
 					<action name="Execute">
-						<execute>geany ~/.config/tint2/tint2rc</execute>
+						<execute>tintwizard.py ~/.config/tint2/tint2rc</execute>
 					</action>
 				</item>
 			</menu>

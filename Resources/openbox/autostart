@@ -25,3 +25,5 @@ start network-manager &
 (sleep 15 && sudo /usr/local/bin/mountPartitions.sh) &
 
 (sleep 1 && backgroundshufflestart) &
+
+
