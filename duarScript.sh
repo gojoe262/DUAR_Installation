@@ -20,44 +20,6 @@ function ExitDuar {
 	exit 0
 }
 
-# XSCREENSAVER NOT USED ANYMORE. I3LOCK HAS BEEN USED INSTEAD.
-########################################################################
-# Installs xscreensaver.
-# This is needed for locking the screen
-# SEE: http://www.linuxx.eu/2014/02/locking-screen-in-openbox.html
-# XSCREENSAVER IS OLD. I HAD TO DOWNLOAD THE .DEB
-# FROM https://packages.debian.org/sid/xscreensaver
-# INSTALLED IT WITH: sudo dpkg -i xscreen*
-########################################################################
-#~ function InstallXScreensaver {
-	#~ build=$(uname -m)
-	#~ downloaded=false
-	#~ if [ "$build" == "x86_64" ]
-		#~ then
-		#~ wget --directory-prefix=xscreensaver/ http://ftp.us.debian.org/debian/pool/main/x/xscreensaver/xscreensaver_5.30-1+b1_amd64.deb
-		#~ downloaded=true
-	#~ elif [ "$build" == "i386" ]
-		#~ then
-		#~ wget --directory-prefix=xscreensaver/ http://ftp.us.debian.org/debian/pool/main/x/xscreensaver/xscreensaver_5.30-1+b1_i386.deb
-		#~ downloaded=true
-	#~ fi
-	#~ 
-	#~ if [ "$downloaded" == "true" ]
-		#~ then 
-		#~ echo "Downloaded Sucessfully. Now installing..."
-		#~ sudo dpkg -i xscreensaver/xscreensaver_5.30*
-	#~ else
-		#~ echo "xscreensaver has not been install."
-		#~ echo -n "Continue with the rest of DUAR installation? [y/n]: "
-		#~ read continue
-		#~ if [ "$continue" != "y" ] | [ "$continue" != "Y" ] 
-			#~ then
-			#~ ExitDuar
-		#~ fi
-	#~ fi
-#~ }
-
-
 ########################################################################
 # Install the base desktop
 ########################################################################
@@ -122,12 +84,16 @@ function InstallBasicDestopApps {
 
 	echo "----------\n--Installing Terminator\n----------"
 	apt-get install terminator    				#Terminal
+	
+	echo "----------\n--Installing GParted\n----------"
+	apt-get install gparted        				#Disk Partitioner
+
 
 	echo "----------\n--Installing LxTask\n----------"
 	apt-get install lxtask        				#Task manager
 	
+	echo "----------\n--Installing gtk-theme-switch\n----------"
 	sudo apt-get install gtk-theme-switch gtk2-engines
-	#TO RUN THE SWITCHER: gtk-theme-switch2
 }
 
 function InstallOtherApps {
@@ -136,9 +102,6 @@ function InstallOtherApps {
 
 	echo "----------\n--Installing Geany\n----------"
 	apt-get install geany        				#Geany Text Editor
-
-	echo "----------\n--Installing GParted\n----------"
-	apt-get install gparted        				#Disk Partitioner
 
 	echo "----------\n--Installing Viewnior\n----------"
 	apt-get install viewnior					#Picture Viewer
@@ -156,8 +119,9 @@ function InstallOtherApps {
 	echo "----------\n--Installing gcc, g++, gdb, and others\n----------"
 	apt-get install git        					#Git version control
 
+	echo "----------\n--Installing nm-applet\n----------"
 	# NM_APPLET NOT REALLY WORKING THE WAY IT SHOULD
-	#apt-get install network-manager-gnome 		#nm-applet
+	apt-get install network-manager-gnome 		#nm-applet
 	
 	echo "----------\n--Installing xfce-Screenshooter\n----------"
 	apt-get install xfce4-screenshooter			#Screenshooter tool
@@ -182,31 +146,35 @@ function ConfigureDesktop {
 	#Copy Autostart, Environment, menu.xml, and rc.xml to root
 	cp $resources/openbox/* $rootSettings/openbox/ --backup --suffix=~ --recursive
 	
-	#Only cooy menu.xml, and rc.xml to user
+	#Only copy menu.xml, and rc.xml to user
 	cp $resources/openbox/menu.xml $userSettings/openbox/ --backup --suffix=~ --recursive
 	cp $resources/openbox/rc.xml $userSettings/openbox/ --backup --suffix=~ --recursive
 	
 	#Copy tint2 to root and user
 	cp $resources/tint2/* $rootSettings/tint2/ --backup --suffix=~ --recursive
 	cp $resources/tint2/* $userSettings/tint2/ --backup --suffix=~ --recursive
-	
-	#Copy terminator config to user
-	cp $resources/terminator/* $userSettings/terminator/ --backup --suffix=~ --recursive
-	
+		
 	#Copy backgroundshuffle-start/next to /usr/local/bin/
-	cp $resources/backgroundshufflestart /usr/local/bin/ --backup --suffix=~ --recursive
-	cp $resources/backgroundshufflenext /usr/local/bin/ --backup --suffix=~ --recursive
+	cp $resources/localBin/backgroundshufflestart /usr/local/bin/ --backup --suffix=~ --recursive
+	cp $resources/localBin/backgroundshufflenext /usr/local/bin/ --backup --suffix=~ --recursive
 	
 	#Copy cb-exit to /usr/local/bin/
-	cp $resources/cb-exit /usr/local/bin/ --backup --suffix=~ --recursive
+	cp $resources/localBin/cb-exit /usr/local/bin/ --backup --suffix=~ --recursive
 	
-	#Copy background.jpg to /usr/share/backgrounds
+	#Copy background.jpg to /usr/share/backgrounds -- MAKE SURE BACKGROUNDSHUFFLE CORROSPONDS TO THIS
 	mkdir /usr/share/backgrounds
 	cp $resources/background.jpg /usr/share/backgrounds/ --backup --suffix=~ --recursive
 	
+	#Copy and set up SLiM
+	mkdir /usr/share/slim/themes/slim-hud
+	cp $resources/slim-hud/* /usr/share/slim/themes/slim-hud --backup --suffix=~ --recursive
+	cp $resources/etc/slim.conf /etc/ --backup --suffix=~ --recursive
+	
+	#Copy mountPartitions.sh
+	cp $resources/localBin/mountPartitions.sh /usr/local/bin/ --backup --suffix=~ --recursive
+	
 	echo ""
 }
-
 
 ########################################################################
 # MAIN PROGRAM
@@ -253,7 +221,7 @@ if [ "$continue" == "y" ] || [ "$continue" == "Y" ]
 	echo "----------------------------"
 	echo "----CONFIGURING DESKTOP-----"
 	echo "----------------------------"
-	#ConfigureDesktop
+	ConfigureDesktop
 fi
 
 ExitDuar

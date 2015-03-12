@@ -222,6 +222,11 @@
 					<execute>gksudo synaptic</execute>
 				</action>
 			</item>
+			<item label="TeamViewer">
+				<action name="Execute">
+					<execute>/opt/teamviewer/tv_bin/script/teamviewer</execute>
+				</action>
+			</item>
 			<item label="Terminator">
 				<action name="Execute">
 					<execute>terminator</execute>
