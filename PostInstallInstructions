@@ -1,0 +1,46 @@
+RUN EACH ONE OF THESE AFTER THE DUAR INSTALLATION SCRIPT IS DONE. 
+
+=====ADDING SUDOERS=====
+	Allows non-root user to poweroff, reboot, suspend, etc.
+	run 'visudo' as root
+	add the following to the end of the file:
+		
+		ALL  ALL=NOPASSWD:/sbin/poweroff
+		ALL  ALL=NOPASSWD:/sbin/reboot
+		ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend
+		ALL  ALL=NOPASSWD:/usr/local/bin/mountPartitions.sh
+		
+=====SHOW BOOT MESSAGES ON START UP=====
+	You would need to edit the file /etc/default/grub. In this file 
+	you'll find an entry called GRUB_CMDLINE_LINUX_DEFAULT. This 
+	entry must be edited to control the display of the splash screen.
+	
+	The presence of the word splash in this entry enables the splash
+	screen, with condensed text output. Adding quiet as well, results 
+	in just the splash screen; which is the default for the desktop 
+	edition since 10.04 (Lucid Lynx). In order to enable the "normal"
+	text start up, you would remove both of these.
+
+	So, the default for the desktop, (i.e. splash screen only):
+		GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+
+	For the traditional, text display:
+		GRUB_CMDLINE_LINUX_DEFAULT=
+
+	After editing the file, you need to run update-grub.
+		sudo update-grub
+		
+=====PLYMOUTH-UPSTART-BRIDGE=====
+	In Ubuntu 14.04 and Ubuntu 14.10, there seems to be a problem loading 
+	plymouth-upstart-bridge. This can be seen during the boot process (if 
+	boot messages are enable).
+		plymouth-upstart-bridge main process (387) terminated with status 1	
+	
+	To fix this issue add 'sleep 2' to the end of 
+	/etc/init/plymouth-upstart-bridge.conf. This will hopefully resolve the issue.		
+		
+		sudo nano /etc/init/plymouth-upstart-bridge.conf
+		
+		-Then add 
+			sleep 2
+		to the end of the file.

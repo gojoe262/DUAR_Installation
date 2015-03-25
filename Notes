@@ -1,11 +1,3 @@
-=====SLIM===== 
-Change Slim Theme
-	Copy (as root) any background you like to /usr/share/slim/themes/archbang.
-	Make sure your picture is named background.png or it won't work.
-	If you would like another theme, just copy (as root), any theme folder to /usr/share/slim/themes.
-	Edit /etc/slim.conf and change current_theme to your new theme.
-
-
 =====ADDING SUDOERS=====
 	run 'visudo' as root
 	add the following to the end of the file:
@@ -15,6 +7,13 @@ Change Slim Theme
 		ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend
 		ALL  ALL=NOPASSWD:/usr/local/bin/mountPartitions.sh
 		
+=====SLIM===== 
+Change Slim Theme
+	Copy (as root) any background you like to /usr/share/slim/themes/archbang.
+	Make sure your picture is named background.png or it won't work.
+	If you would like another theme, just copy (as root), any theme folder to /usr/share/slim/themes.
+	Edit /etc/slim.conf and change current_theme to your new theme.
+
 		
 =====COPY COMMAND=====
 	Copies a file to the DestinationFolder. If there are any
@@ -22,7 +21,6 @@ Change Slim Theme
 	suffix '.backup'
 
 		cp cb-lock DestFolder/ --backup --suffix=.backup
-		
 
 =====SHOW BOOT MESSAGES ON START UP=====
 	You would need to edit the file /etc/default/grub. In this file 

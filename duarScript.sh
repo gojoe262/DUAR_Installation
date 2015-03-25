@@ -17,6 +17,10 @@
 ########################################################################
 function ExitDuar {
 	echo "Exiting DUAR..."
+	echo ""
+	echo ""
+	echo "See PostInstallInstructions to complete the installation"
+	cat PostInstallInstructions
 	exit 0
 }
 
