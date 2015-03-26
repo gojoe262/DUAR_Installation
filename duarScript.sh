@@ -78,6 +78,9 @@ function InstallBasicDestopApps {
 	apt-get install alsa-base 					#Sound
 	apt-get install alsa-utils 					#Sound
 	apt-get install volumeicon-alsa 			#installs the volume icon
+	
+	echo "----------\n--Installing wicd-gtk\n----------"
+	apt-get install wicd-gtk					#Network Manager (also creates applet in tint2)
 
 	echo "----------\n--Installing PulseAudio\n----------"
 	apt-get install pulseaudio      			#Pulse Audio Sound Server
@@ -123,10 +126,6 @@ function InstallOtherApps {
 	echo "----------\n--Installing gcc, g++, gdb, and others\n----------"
 	apt-get install git        					#Git version control
 
-	echo "----------\n--Installing nm-applet\n----------"
-	# NM_APPLET NOT REALLY WORKING THE WAY IT SHOULD
-	apt-get install network-manager-gnome 		#nm-applet
-	
 	echo "----------\n--Installing xfce-Screenshooter\n----------"
 	apt-get install xfce4-screenshooter			#Screenshooter tool
 	

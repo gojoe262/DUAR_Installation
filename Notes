@@ -7,6 +7,26 @@
 		ALL  ALL=NOPASSWD:/usr/sbin/pm-suspend
 		ALL  ALL=NOPASSWD:/usr/local/bin/mountPartitions.sh
 		
+=====CONNECTING TO A WIRED/WIRELESS NETWORK COMMAND LINE=====
+	To view available network interfaces
+		sudo /sbin/ifconfig  
+		sudo /sbin/iwconfig
+
+	WIRED (not sure if this will actually work):
+	Edit /etc/network/interfaces to have:
+		auto eth0
+		iface eth0 inet dhcp
+
+	Restart the networking
+		sudo /etc/init.d/networking restart
+
+	Run dhclient:
+		sudo dhclient eth0
+
+	
+	WIRELESS
+	http://blog.tplus1.com/blog/2008/06/13/how-to-connect-to-a-wireless-network-from-the-ubuntu-command-line/
+
 =====SLIM===== 
 Change Slim Theme
 	Copy (as root) any background you like to /usr/share/slim/themes/archbang.
