@@ -94,6 +94,11 @@
 					<execute>skype</execute>
 				</action>
 			</item>
+			<item label="Wicd Network Manager">
+				<action name="Execute">
+					<execute>wicd-gtk --no-tray</execute>
+				</action>
+			</item>
 		</menu>
 		<menu id="root-menu-381051" label="Office">
 			<item label="Evince PDF">
