@@ -20,7 +20,7 @@ function ExitDuar {
 	echo ""
 	echo ""
 	echo "See PostInstallInstructions to complete the installation"
-	cat PostInstallInstructions
+	#cat PostInstallInstructions
 	exit 0
 }
 
@@ -39,11 +39,12 @@ function InstallDesktop {
 	
 	echo "----------\n--Installing Tint2\n----------"
 	apt-get install tint2					#Taskbar
-	tar -xzvf ./Resources/tint2/tintwizard-0.3.4.tar.gz /usr/local/bin/tintwizard.py #Tint wizard editor
+	tar -xzvf ./Resources/tint2/tintwizard-0.3.4.tar.gz tintwizard.py #Tint wizard editor
+	cp tintwizard.py /usr/local/bin/
 	chmod +x /usr/local/bin/tintwizard.py	
 	
-	echo "----------\n--Installing Simplecal\n----------"
-	apt-get install simplecal    				#Little calendar for tint2
+	echo "----------\n--Installing gsimplecal\n----------"
+	apt-get install gsimplecal    				#Little calendar for tint2
 	
 	echo "----------\n--Installing Slim\n----------"
 	apt-get install slim 					#LogIn Manager 
