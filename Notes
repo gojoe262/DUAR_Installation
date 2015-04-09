@@ -27,6 +27,17 @@
 	WIRELESS
 	http://blog.tplus1.com/blog/2008/06/13/how-to-connect-to-a-wireless-network-from-the-ubuntu-command-line/
 
+=====FIXING THE "WAITING FOR NETWORK CONFIGURATION" AT START UP=====
+	Disable the sleep commands that wait for the network configuration to 
+	start up. We do not care if network is or isn't started when we boot 
+	up the machine. We just wanna boot up the machine.
+	
+	open file: /etc/init/failsafe.conf
+	Comment out the sleep commands
+		# sleep 20
+		# sleep 40
+		# sleep 59
+
 =====SLIM===== 
 Change Slim Theme
 	Copy (as root) any background you like to /usr/share/slim/themes/archbang.
