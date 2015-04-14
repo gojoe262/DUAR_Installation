@@ -1,5 +1,14 @@
 RUN EACH ONE OF THESE AFTER THE DUAR INSTALLATION SCRIPT IS DONE. 
 
+=====INSTALL MICROSOFT FONTS=====
+	Open the terminal (Mod + t)
+	Download and run the installer:
+		sudo apt-get install ttf-mscorefonts-installer
+	Hit tab to cycle through options and hit ok and agree.
+	
+	This will fix text not showing up on KSP
+
+
 =====ADDING SUDOERS=====
 	Allows non-root user to poweroff, reboot, suspend, etc.
 	run 'visudo' as root

@@ -73,7 +73,7 @@ function InstallBasicDestopApps {
 	echo "----------\n--Installing Thunar File Manager\n----------"
 	apt-get install thunar							#File Manager
 	apt-get install thunar-archive-plugin 			#Extract files utils
-	apt-get install gnome-icon-themes-full			#Icons for Thunar
+	apt-get install gnome-icon-theme-full			#Icons for Thunar
 
 	echo "----------\n--Installing Alsa\n----------"
 	apt-get install alsa-base 					#Sound
