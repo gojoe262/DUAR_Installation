@@ -115,6 +115,20 @@ after your system up, edit /etc/default/grub and remove some option which we hav
 		Exec: tintwizard.py ~/.config/tint2/tint2rc
 	
 	
+=====UPDATE, UPGRADE, DIST-UPGRADE, RELEASE-UPGRADE=====
+	Update - syncs list of available packages with the servers in source repos
+		sudo apt-get update
+		
+	Upgrade - downloads and install any newer versions of your installed packages
+		sudo apt-get upgrade
+		
+	Dist-Upgrade - The dist-upgrade option not only will upgrade all of the currently installed packages on your system it will also handle the dependency changes with new versions of packages. In other words, dist-upgrade will remove obsolete packages from your system, whereas upgrade will not.
+		sudo apt-get dist-upgrade
+		
+	Release Upgrade - update ubuntu to the latest release
+		sudo do-release-upgrade
+	
+	
 =====INSTALLING APPS=====
 	1. 	When installing apps (such as Qt Creator) put this in the /opt directory.
 	
