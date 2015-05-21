@@ -46,9 +46,6 @@ function InstallDesktop {
 	echo "----------\n--Installing gsimplecal\n----------"
 	apt-get install gsimplecal    				#Little calendar for tint2
 	
-	echo "----------\n--Installing Slim\n----------"
-	apt-get install slim 					#LogIn Manager 
-	
 	echo "----------\n--Installing Nitrogen\n----------"
 	apt-get install nitrogen        			#Can set the background with this
 	
@@ -168,11 +165,6 @@ function ConfigureDesktop {
 	#Copy background.jpg to /usr/share/backgrounds -- MAKE SURE BACKGROUNDSHUFFLE CORROSPONDS TO THIS
 	mkdir /usr/share/backgrounds
 	cp $resources/background.jpg /usr/share/backgrounds/ --backup --suffix=~ --recursive
-	
-	#Copy and set up SLiM
-	mkdir /usr/share/slim/themes/slim-hud
-	cp $resources/slim-hud/* /usr/share/slim/themes/slim-hud --backup --suffix=~ --recursive
-	cp $resources/etc/slim.conf /etc/ --backup --suffix=~ --recursive
 	
 	#Copy mountPartitions.sh
 	cp $resources/localBin/mountPartitions.sh /usr/local/bin/ --backup --suffix=~ --recursive
